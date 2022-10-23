@@ -1,0 +1,19 @@
+.form-fields-personal {
+	.partner {
+		display: none;
+
+		&:not(.active) {
+			+ .button {
+				display: none;
+			}
+		}
+
+		&.active {
+			display: grid;
+
+			+ .button {
+				margin-top: fluid(20, 40);
+			}
+		}
+	}
+}

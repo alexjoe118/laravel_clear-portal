@@ -1,0 +1,134 @@
+.page.dashboard-user-document-index {
+	.document-group {
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		align-items: start;
+		height: 100%;
+
+		.title {
+			font-weight: 600;
+		}
+
+		.documents {
+			display: grid;
+			grid-template-columns: 100%;
+			gap: fluid(10, 16);
+			margin-bottom: fluid(15, 30);
+			color: $color-tertiary;
+
+			.document {
+				position: relative;
+				color: $color-primary;
+
+				&:first-of-type {
+					margin-top: fluid(15, 30);
+				}
+
+				.document-type {
+					@extend .text-caption;
+
+					display: block;
+					text-transform: uppercase;
+				}
+
+				span {
+					color: $color-tertiary;
+
+					input {
+						width: 100%;
+						color: inherit;
+						font-size: inherit;
+						border-bottom: rem-calc(1) solid transparent;
+
+						&:hover {
+							animation: blink-border 500ms linear infinite;
+						}
+
+						@keyframes blink-border {
+							0%,
+							100% {
+								border-bottom-color: transparent;
+							}
+
+							50% {
+								border-bottom-color: $color-tertiary;
+							}
+						}
+					}
+				}
+
+				.actions {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					display: grid;
+					grid-auto-flow: column;
+					align-items: center;
+					gap: fluid(5, 10);
+					transform: translateY(-50%);
+					background: white;
+					padding: fluid(5, 8);
+					opacity: 0;
+					pointer-events: none;
+
+					> * {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						width: rem-calc(25);
+						height: rem-calc(25);
+					}
+				}
+
+				&:hover {
+					.actions {
+						opacity: 1;
+						pointer-events: all;
+					}
+				}
+
+				a {
+					svg {
+						width: fluid(13, 15);
+					}
+				}
+
+				form {
+					display: flex;
+
+					svg {
+						width: fluid(15, 20);
+					}
+				}
+
+				.select {
+					position: relative;
+
+					select {
+						@extend %fill;
+
+						padding: 0;
+						opacity: 0;
+						cursor: pointer;
+					}
+				}
+
+				.download {
+					button {
+						color: $color-primary;
+					}
+
+					svg {
+						width: fluid(13, 17);
+					}
+				}
+
+				.delete {
+					button {
+						color: $color-tertiary;
+					}
+				}
+			}
+		}
+	}
+}

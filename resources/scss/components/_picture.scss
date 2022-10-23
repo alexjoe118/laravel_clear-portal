@@ -1,0 +1,12 @@
+.picture {
+	position: relative;
+	display: block;
+
+	.img {
+		width: 100%;
+	}
+
+	.link {
+		@extend %fill;
+	}
+}

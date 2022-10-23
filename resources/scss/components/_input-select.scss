@@ -1,0 +1,41 @@
+.input-select {
+	position: relative;
+	width: 100%;
+
+	select {
+		cursor: pointer;
+
+		&:invalid {
+			color: rgba($color-primary, 0.5);
+		}
+	}
+
+	select:not([multiple]) {
+		padding-right: fluid(35, 40);
+	}
+
+	select[multiple] {
+		overflow: hidden;
+
+		option {
+			padding: fluid(15, 20);
+
+			&:checked {
+				color: white;
+				background: $color-tertiary;
+			}
+		}
+	}
+
+	&:not(.readonly):not(.disabled):not(.multiple)::after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		right: fluid(15, 20);
+		width: fluid(7, 9);
+		height: fluid(5, 7);
+		transform: translateY(-50%);
+		clip-path: polygon(0 0, 100% 0, 50% 100%);
+		background: rgba($color-primary, 0.3);
+	}
+}

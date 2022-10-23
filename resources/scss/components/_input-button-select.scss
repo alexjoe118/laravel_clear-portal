@@ -1,0 +1,35 @@
+.input-button-select {
+	display: flex;
+	flex-wrap: wrap;
+	margin: fluid(-3, -5);
+
+	button {
+		position: relative;
+		margin: fluid(3, 5);
+	}
+
+	input {
+		@extend %fill;
+
+		opacity: 0;
+		cursor: pointer;
+
+		&:checked {
+			+ label {
+				color: white;
+				background: $color-primary-light;
+				border-color: $color-primary-light;
+			}
+		}
+	}
+
+	label {
+		margin-bottom: 0;
+		padding: fluid(6, 10) fluid(12, 15);
+		color: $color-tertiary;
+		background: white;
+		font-size: fluid(15, 16);
+		border: rem-calc(1) solid $color-gray;
+		border-radius: rem-calc(10);
+	}
+}

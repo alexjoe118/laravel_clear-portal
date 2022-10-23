@@ -1,0 +1,62 @@
+.swiper-controls {
+	position: absolute;
+	left: rem-calc(-15);
+    top: 50%;
+	z-index: 2;
+	display: none;
+	width: calc(100% + rem-calc(30));
+	align-items: center;
+	font-size: fluid(14, 18);
+	pointer-events: none;
+    transform: translateY(-50%);
+
+	@include media('>=phone') {
+		left: rem-calc(-22);
+		width: calc(100% + rem-calc(44));
+	}
+
+	&.active {
+		display: flex;
+	}
+}
+
+.swiper-buttons {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	transition: opacity 200ms;
+
+	&,
+	* {
+		pointer-events: all;
+	}
+
+	.swiper-button-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fluid(32, 48);
+		height: fluid(32, 48);
+		color: white;
+		background: $color-primary-light;
+		border-radius: rem-calc(10);
+	}
+
+	svg {
+		width: fluid(9, 11);
+	}
+
+	&.swiper-button-disabled {
+		visibility: hidden;
+	}
+}
+
+.swiper-button-prev {
+	svg {
+		transform: rotate(180deg);
+	}
+}

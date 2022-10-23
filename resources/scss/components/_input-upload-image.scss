@@ -1,0 +1,107 @@
+.input-upload-image {
+	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
+
+	&::before {
+		@extend %fill;
+
+		content: '';
+		z-index: 1;
+		transition: background 200ms;
+	}
+
+	&::after {
+		@extend .text-extra-small;
+
+		content: 'Upload Photo';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		transform: translate(-50%, -50%);
+		color: white;
+		opacity: 0;
+		font-weight: 600;
+		text-align: center;
+		transition: opacity 200ms;
+	}
+
+	&:hover {
+		&::before {
+			background: rgba($color-primary, 0.5);
+		}
+
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	.picture,
+	.input,
+	.preview,
+	.img {
+		@extend %fill;
+	}
+
+	.img,
+	.preview {
+		object-fit: cover;
+	}
+
+	.preview {
+		&:not([src]) {
+			display: none;
+		}
+
+		&[src] {
+			+ .picture {
+				opacity: 0;
+			}
+		}
+	}
+
+	.input {
+		z-index: 2;
+		background: none;
+		font-size: 0;
+		cursor: pointer;
+	}
+
+	&.style-medium {
+		width: fluid(55, 120);
+		height: fluid(55, 120);
+		padding: fluid(2, 6);
+	}
+
+	&.style-large {
+		width: fluid(100, 160);
+		height: fluid(100, 160);
+	}
+
+	&.style-thumbnail {
+		width: fluid(200, 450);
+		min-height: fluid(125, 250);
+
+		.preview {
+			position: relative;
+		}
+	}
+
+	&.style-bordered {
+		background: white;
+		border: rem-calc(3) solid white;
+
+		@include media('>=phone-medium') {
+			border-width: rem-calc(5);
+		}
+
+		@include media('>=tablet') {
+			border-width: rem-calc(7);
+		}
+	}
+
+	&.style-squared {
+		border-radius: 0;
+	}
+}

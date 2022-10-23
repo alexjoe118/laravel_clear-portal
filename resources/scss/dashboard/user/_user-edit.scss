@@ -1,0 +1,62 @@
+.page.dashboard-user-user-edit {
+	.info {
+		border-radius: rem-calc(20);
+		overflow: hidden;
+
+		.general {
+			position: relative;
+			display: grid;
+			grid-template-columns: auto 1fr;
+			align-items: center;
+			gap: fluid(10, 50);
+			padding: fluid(20, 30) fluid(15, 60);
+			color: white;
+			background: $color-primary;
+
+			@include media('>=phone-medium') {
+				grid-template-columns: auto auto 1fr;
+			}
+
+			&::before {
+				@include media('>=phone') {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					width: fluid(10, 25, 'phone');
+					background: $color-secondary;
+				}
+			}
+
+			.label {
+				display: block;
+				margin-bottom: fluid(5, 15);
+			}
+
+			.name {
+				font-weight: 600;
+			}
+
+			.id {
+				grid-column: 1 / span 2;
+				color: rgba(white, 0.75);
+
+				@include media('>=phone-medium') {
+					grid-column: unset;
+					text-align: right;
+				}
+			}
+		}
+
+		.inputs {
+			background: white;
+			padding: fluid(35, 45) fluid(20, 50);
+		}
+	}
+
+	.update-email,
+	.update-password {
+		margin-top: fluid(45, 80);
+	}
+}

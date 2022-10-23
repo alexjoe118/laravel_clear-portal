@@ -1,0 +1,86 @@
+.page.auth-login {
+	min-height: 100vh;
+	display: grid;
+
+	@include media('>=tablet') {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.picture {
+		display: none;
+		height: 100%;
+
+		@include media('>=tablet') {
+			display: block;
+		}
+
+		.img {
+			@extend %fill;
+
+			object-fit: cover;
+		}
+	}
+
+	.form-wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: fluid(40, 60) fluid(20, 140);
+		background: $color-secondary-light;
+		text-align: center;
+	}
+
+	.title {
+		margin-bottom: fluid(30, 55);
+	}
+
+	form {
+		width: 100%;
+		max-width: rem-calc(500);
+
+		@include media('>=tablet') {
+			max-width: none;
+		}
+
+		.reset-password,
+		.create-account {
+			display: block;
+
+			a {
+				color: $color-primary;
+			}
+		}
+
+		.reset-password {
+			margin-top: fluid(20, 30);
+			margin-bottom: fluid(20, 55);
+		}
+
+		.create-account {
+			margin-top: fluid(15, 20);
+		}
+	}
+
+	.send-email-verification {
+		margin-top: fluid(15, 20);
+	}
+
+	.leaf {
+		display: none;
+
+		@include media('>=tablet') {
+			position: absolute;
+			right: fluid(5, 45, 'tablet');
+			bottom: fluid(-20, -40, 'tablet');
+			display: block;
+			width: fluid(90, 160, 'tablet');
+			color: white;
+		}
+
+		svg {
+			width: 100%;
+		}
+	}
+}

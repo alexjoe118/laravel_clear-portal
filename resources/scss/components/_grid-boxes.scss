@@ -1,0 +1,57 @@
+.grid-boxes {
+	display: grid;
+	grid-template-columns: 100%;
+	position: relative;
+
+	&:not(:first-of-type) {
+		margin-top: fluid(30, 70);
+	}
+
+	.swiper {
+		width: 100%;
+	}
+
+	.grid {
+		&:not(.swiper-wrapper) {
+			display: grid;
+			gap: fluid(10, 25);
+
+			@include media('>phone-medium') {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		&.cols-3,
+		&.cols-4,
+		&.cols-5 {
+			@include media('>=desktop-medium') {
+				grid-template-columns: repeat(3, 1fr) !important;
+			}
+		}
+
+		&.cols-4 {
+			@include media('>=desktop-mlarge') {
+				grid-template-columns: repeat(4, 1fr) !important;
+			}
+		}
+
+		&.cols-5 {
+			@include media('>=desktop-mlarge') {
+				grid-template-columns: repeat(5, 1fr) !important;
+			}
+		}
+	}
+
+	.box {
+		width: 100%;
+		padding: fluid(20, 40) fluid(15, 25);
+		background: white;
+		border-radius: rem-calc(15);
+
+		&.swiper-slide {
+			&:not(:last-child) {
+				margin-right: fluid(10, 30);
+			}
+		}
+	}
+}

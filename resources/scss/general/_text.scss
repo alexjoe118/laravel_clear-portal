@@ -1,0 +1,44 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+}
+
+.text-caption {
+	font-size: fluid(11, 12);
+}
+
+.text-extra-small {
+	font-size: fluid(12, 14);
+}
+
+.text-small {
+	font-size: fluid(12, 16);
+}
+
+.text-normal {
+	font-size: fluid(14, 18);
+}
+
+.text-h1 {
+	font-size: fluid(24, 56);
+}
+
+.text-h2 {
+	font-size: fluid(22, 40);
+}
+
+.text-h3 {
+	font-size: fluid(18, 32);
+}
+
+.text-h4 {
+	font-size: fluid(17, 24);
+}
+
+.text-h5 {
+	font-size: fluid(16, 20);
+}

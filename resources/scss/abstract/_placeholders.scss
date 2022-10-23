@@ -1,0 +1,14 @@
+%fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+%message-box {
+	margin-bottom: fluid(25, 50);
+	padding: fluid(15, 25);
+	line-height: 1.5;
+	border-radius: rem-calc(20);
+}

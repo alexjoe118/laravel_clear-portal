@@ -1,0 +1,19 @@
+.page.landing-open-approvals {
+	.empty-message {
+		text-align: center;
+	}
+
+	.open-approvals-sampler {
+		@include media('>=desktop-small') {
+			max-width: fluid(1000, 1366, 'desktop-small');
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.box {
+		@include media('>=phone') {
+			max-width: fluid(330, 405, 'phone');
+		}
+	}
+}

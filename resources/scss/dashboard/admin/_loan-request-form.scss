@@ -1,0 +1,9 @@
+.page.dashboard-admin-loan-request-form {
+	.documents {
+		display: grid;
+		flex-wrap: wrap;
+		gap: fluid(10, 20);
+		margin-bottom: fluid(15, 30);
+		margin-top: fluid(15, 30);
+	}
+}

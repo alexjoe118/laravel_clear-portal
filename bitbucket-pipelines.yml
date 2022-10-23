@@ -1,0 +1,13 @@
+pipelines:
+  branches:
+     master:
+     - step:
+        name: Push to Digital Ocean Live
+        script:
+          - cat ./deploy-prod.sh | ssh -v $USER_PROD@$HOST_PROD
+     development:
+     - step:
+        name: Push to Digital Ocean Development
+        script:
+          - cat ./deploy-dev.sh | ssh -v $USER_DEV@$HOST_DEV
+

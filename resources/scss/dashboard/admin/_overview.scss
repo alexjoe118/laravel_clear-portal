@@ -1,0 +1,23 @@
+.page.dashboard-admin-overview {
+	.alert {
+		&:not(:last-of-type) {
+			margin-bottom: fluid(15, 25);
+		}
+
+		.message {
+			display: block;
+			font-weight: bold;
+			margin-bottom: fluid(10, 15);
+		}
+
+		.list {
+			display: grid;
+			gap: fluid(3, 5);
+		}
+
+		&.success {
+			background: rgba($color-primary, 0.15);
+			border: rem-calc(1) solid rgba($color-primary, 0.15);
+		}
+	}
+}

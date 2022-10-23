@@ -1,0 +1,7 @@
+@mixin header-height($property) {
+	#{$property}: fluid(58, 100);
+}
+
+@mixin input-height($property) {
+	#{$property}: fluid(45, 60);
+}

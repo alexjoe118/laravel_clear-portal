@@ -1,0 +1,200 @@
+.header {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@include header-height(height);
+	padding: 0 fluid(10, 30);
+	background: $color-primary;
+
+	.logo {
+		width: fluid(75, 120);
+	}
+
+	.sidebar-toggler {
+		position: relative;
+		width: fluid(30, 45);
+		height: fluid(8, 14);
+
+		> div {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: rem-calc(1);
+			background: white;
+
+			@include media('>=desktop-small') {
+				height: rem-calc(2);
+			}
+
+			&:first-of-type {
+				top: 0;
+			}
+
+			&:last-of-type {
+				bottom: 0;
+			}
+		}
+	}
+
+	.notifications-toggler {
+		position: relative;
+		display: inline-block;
+
+		&.has-notifications {
+			&::before {
+				content: attr(data-notifications);
+				position: absolute;
+				top: fluid(5, 8);
+				right: 0;
+				transform: translateX(50%);
+				width: fluid(17, 20);
+				height: fluid(17, 20);
+				color: $color-primary;
+				background: $color-secondary;
+				font-weight: normal;
+				font-size: fluid(10, 12);
+				line-height: fluid(17, 20);
+				text-align: center;
+				border-radius: 50%;
+			}
+		}
+
+		* {
+			pointer-events: none;
+		}
+
+		svg {
+			width: fluid(15, 20);
+		}
+	}
+
+	.notifications {
+		position: absolute;
+		top: 100%;
+		right: fluid(0, 60);
+		width: fluid(280, 375);
+		padding: fluid(15, 30) fluid(15, 20);
+		opacity: 0;
+		background: white;
+		box-shadow: 0 rem-calc(10) rem-calc(20) rgba(black, 0.1);
+		transition: all 200ms;
+		transition-property: top, opacity;
+		pointer-events: none;
+
+		.wrapper {
+			max-height: fluid(370, 440);
+			padding-right: fluid(10, 15);
+			overflow-y: auto;
+
+			&::-webkit-scrollbar {
+				width: rem-calc(5);
+			}
+
+			&::-webkit-scrollbar-track {
+				background: rgba($color-primary, 0.1);
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: rgba($color-primary, 0.15);
+			}
+		}
+
+		.empty-message {
+			display: block;
+			color: rgba($color-primary, 0.65);
+			text-align: center;
+		}
+
+		&.active {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+
+	.notification {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: fluid(15, 25);
+
+		&:not(:last-of-type) {
+			margin-bottom: fluid(15, 30);
+			padding-bottom: fluid(15, 30);
+			border-bottom: rem-calc(1) solid rgba($color-primary, 0.1);
+		}
+
+		.status {
+			width: fluid(15, 20);
+			height: fluid(15, 20);
+			border: rem-calc(2) solid $color-secondary;
+			border-radius: 50%;
+		}
+
+		.title,
+		.message {
+			display: table;
+			margin-bottom: fluid(8, 15);
+		}
+
+		.title {
+			svg {
+				position: relative;
+				left: 0;
+				display: inline-block;
+				align-items: center;
+				width: fluid(8, 12);
+				transition: left 150ms;
+			}
+
+			&:hover {
+				svg {
+					left: rem-calc(3);
+				}
+			}
+		}
+
+		.message,
+		.date {
+			color: rgba($color-primary, 0.5);
+		}
+
+		.message {
+			margin-bottom: fluid(3, 8);
+		}
+
+		&.new {
+			.status {
+				background: $color-secondary;
+			}
+		}
+	}
+
+	.navigation {
+		display: grid;
+		grid-auto-flow: column;
+		align-items: center;
+		gap: fluid(10, 20);
+	}
+
+	.links {
+		a {
+			color: white;
+			font-size: fluid(14, 18);
+			font-weight: 600;
+		}
+	}
+
+	.logout {
+		&:not(:first-child) {
+			padding-left: fluid(10, 20);
+			border-left: rem-calc(1) solid $color-secondary;
+		}
+
+		button {
+			color: white;
+			font-weight: 600;
+		}
+	}
+}

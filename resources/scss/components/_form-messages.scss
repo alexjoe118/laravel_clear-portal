@@ -1,0 +1,34 @@
+.form-success,
+.form-errors {
+	@extend %message-box;
+
+	a {
+		font-weight: 600;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.form-success {
+	background: rgba($color-secondary, 0.25);
+	border: rem-calc(1) solid rgba($color-secondary, 0.25);
+}
+
+.form-errors {
+	width: 100%;
+	background: rgba($color-error, 0.20);
+	border: rem-calc(1) solid rgba($color-error, 0.20);
+
+	li {
+		&:not(:last-child) {
+			margin-bottom: fluid(10, 15);
+		}
+	}
+
+	&.line {
+		padding-bottom: fluid(15, 20);
+		border-bottom: rem-calc(1) solid $color-gray;
+	}
+}

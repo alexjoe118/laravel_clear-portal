@@ -1,0 +1,76 @@
+html {
+	height: 100%;
+}
+
+body {
+	@extend .text-normal;
+
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $color-primary;
+	font-family: 'Inter', sans-serif;
+	line-height: 1.4;
+
+	&.scroll-lock {
+		overflow: hidden;
+	}
+
+	*::selection {
+		color: $color-primary;
+		background: $color-secondary;
+	}
+}
+
+input,
+textarea,
+select,
+button {
+	font-family: inherit;
+}
+
+input,
+textarea,
+select {
+	border: 0;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+input:not([type='file']):not([type='range']):not([type='checkbox']),
+textarea,
+select {
+	appearance: none;
+}
+
+input[type='file'] {
+	opacity: 0;
+}
+
+button {
+	color: inherit;
+	font-size: inherit;
+}
+
+.alert {
+	@extend %message-box;
+
+	background: rgba($color-alert, 0.5);
+	border: rem-calc(1) solid rgba($color-alert, 0.65);
+
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.download svg {
+	width: fluid(13, 17);
+}

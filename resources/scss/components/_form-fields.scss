@@ -1,0 +1,242 @@
+*[class*='form-fields'] {
+	+ *[class*='form-fields'],
+	+ .button {
+		margin-top: fluid(35, 55);
+	}
+}
+
+.form-fields {
+	display: grid;
+	gap: fluid(15, 25) fluid(10, 20);
+
+	@include media('>=phone-medium') {
+		grid-template-columns: repeat(12, 1fr);
+	}
+
+	> .title {
+		grid-column: 1 / span 12;
+		margin-bottom: fluid(5, 10);
+	}
+
+	&.removable {
+		border-left: 0 solid $color-gray-light;
+		transition: padding 200ms, border-left 100ms 0s;
+
+		&:hover {
+			padding-left: fluid(10, 20);
+			border-left-width: rem-calc(5);
+			transition: padding 200ms, border-left 200ms 100ms;
+
+			.title {
+				cursor: pointer;
+
+				&::before {
+					content: '✕';
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: fluid(25, 30);
+					height: fluid(25, 30);
+					margin-right: fluid(10, 15);
+					color: $color-primary-light;
+					border: rem-calc(2) solid $color-primary-light;
+					vertical-align: middle;
+					border-radius: 50%;
+					font-size: fluid(11, 14);
+					font-weight: bold;
+					line-height: 0;
+					transition: all 200ms;
+					transition-property: color, background;
+				}
+
+				&:hover::before {
+					color: white;
+					background: $color-primary-light;
+				}
+			}
+		}
+	}
+
+	&.style-bordered {
+		.form-field {
+			.prepend {
+				border: rem-calc(1) solid $color-gray;
+				border-right: 0;
+			}
+
+			.append {
+				border: rem-calc(1) solid $color-gray;
+				border-left: 0;
+			}
+
+			input,
+			textarea,
+			select {
+				border-color: $color-gray;
+
+				&.input-error {
+					border-color: $color-error;
+				}
+			}
+		}
+	}
+}
+
+.form-field {
+	position: relative;
+	grid-column: auto / span 12;
+
+	&:not(:first-child).field-title {
+		margin-top: fluid(15, 30);
+	}
+
+	&.third {
+		@include media('>=phone-medium') {
+			grid-column: auto / span 4;
+		}
+	}
+
+	&.half {
+		@include media('>=phone-medium') {
+			grid-column: auto / span 6;
+		}
+	}
+
+	&.full {
+		@include media('>=phone-medium') {
+			grid-column: auto / span 12;
+		}
+	}
+
+	&:not(.third):not(.half):not(.full) {
+		@include media('>=phone-medium') {
+			grid-column: auto / span 6;
+		}
+
+		@include media('>=tablet') {
+			grid-column: auto / span 3;
+		}
+	}
+
+	&.hidden {
+		display: none;
+	}
+
+	label {
+		@extend .text-extra-small;
+
+		display: block;
+		font-weight: normal;
+		margin-bottom: fluid(8, 12);
+
+		&.style-large {
+			font-size: fluid(14, 16);
+		}
+	}
+
+	.label-after {
+		@extend .text-extra-small;
+
+		margin-top: fluid(8, 12);
+		color: $color-tertiary;
+	}
+
+	small {
+		@extend .text-extra-small;
+
+		display: block;
+		margin-top: fluid(1, 3);
+		color: $color-tertiary;
+	}
+
+	input,
+	textarea,
+	select {
+		@extend .text-normal;
+
+		width: 100%;
+		color: $color-primary;
+		background: white;
+		border: rem-calc(1) solid transparent;
+		border-radius: rem-calc(12);
+
+		&:focus {
+			&:not(input:read-only) {
+				border-color: $color-primary-light !important;
+			}
+		}
+
+		&::placeholder {
+			color: rgba($color-primary, 0.5);
+		}
+
+		&:disabled:not([type='file']),
+		&.read-only {
+			color: rgba($color-primary, 0.5) !important;
+			background: rgba($color-primary, 0.1) !important;
+			pointer-events: none;
+
+			&::placeholder {
+				color: transparent !important;
+			}
+		}
+	}
+
+	input:not([type='file']):not([type='range']):not([type='checkbox']):not([type='radio']),
+	textarea,
+	select:not([multiple]) {
+		padding: 0 fluid(15, 20);
+	}
+
+	input:not([type='file']):not([type='range']):not([type='checkbox']):not([type='radio']),
+	select:not([multiple]){
+		@include input-height('height');
+	}
+
+	textarea {
+		@include input-height('min-height');
+
+		padding-top: fluid(13, 19);
+		padding-bottom: fluid(13, 19);
+		resize: vertical;
+		overflow: auto;
+	}
+
+	.input-wrapper {
+		display: flex;
+		width: 100%;
+	}
+
+	.prepend,
+	.append {
+		display: flex;
+		align-items: center;
+		flex-grow: 0;
+		@include input-height('height');
+		padding: 0 fluid(10, 15);
+		color: $color-tertiary;
+		background: rgba($color-primary, 0.075);
+		pointer-events: none;
+	}
+
+	.prepend {
+		border-top-left-radius: rem-calc(12);
+		border-bottom-left-radius: rem-calc(12);
+
+		+ * > input {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	.append {
+		border-top-right-radius: rem-calc(12);
+		border-bottom-right-radius: rem-calc(12);
+		order: 2;
+
+		+ * > input {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+}

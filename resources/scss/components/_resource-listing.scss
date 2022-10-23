@@ -1,0 +1,28 @@
+.resource-listing {
+	display: grid;
+	gap: fluid(15, 25);
+
+	.page-subtitle + .resource-listing-item {
+		padding-top: 0;
+		border-top: 0;
+	}
+
+	.pagination {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: auto auto 1fr;
+		justify-content: space-between;
+		align-items: center;
+		gap: fluid(5, 10);
+		margin-top: fluid(20, 50);
+		text-align: right;
+
+		.arrow-prev {
+			transform: rotate(180deg);
+		}
+
+		.status {
+			color: $color-tertiary;
+		}
+	}
+}

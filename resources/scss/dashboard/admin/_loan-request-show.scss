@@ -1,0 +1,26 @@
+.page.dashboard-admin-loan-request-show {
+	.documents {
+		display: grid;
+		gap: fluid(5, 10);
+		margin: fluid(20, 55) 0;
+
+		.document {
+			button {
+				color: $color-primary;
+				font-weight: bold;
+
+				span {
+					display: grid;
+					grid-auto-flow: column;
+					align-items: center;
+					gap: fluid(5, 8);
+				}
+
+				svg {
+					width: fluid(12, 18);
+					color: $color-primary-light;
+				}
+			}
+		}
+	}
+}

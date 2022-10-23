@@ -1,0 +1,33 @@
+.input-repeater {
+	text-align: right;
+	width: 100%;
+
+	&:not(:last-child) {
+		margin-bottom: fluid(20, 50);
+	}
+
+	.input-wrapper {
+		position: relative;
+		margin-bottom: fluid(10, 20);
+
+		.button-remove {
+			position: absolute;
+			top: 50%;
+			right: fluid(8, 12);
+			padding: fluid(5, 8);
+			transform: translateY(-50%);
+			background: $color-tertiary;
+			color: white;
+			border-radius: 50%;
+			cursor: pointer;
+
+			> * {
+				pointer-events: none;
+			}
+
+			svg {
+				width: fluid(12, 15);
+			}
+		}
+	}
+}

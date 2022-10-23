@@ -1,0 +1,142 @@
+.page.auth-register {
+	padding: fluid(30, 75) fluid(20, 50);
+	background: $color-secondary-light;
+
+	.wrapper {
+		max-width: rem-calc(1650);
+		margin: 0 auto;
+	}
+
+	.steps {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		justify-content: space-between;
+		width: 100%;
+		margin-bottom: rem-calc(30);
+
+		@include media('>=phone-medium') {
+			justify-content: left;
+			gap: fluid(45, 250, 'phone-medium');
+			margin-bottom: 0;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			z-index: -1;
+			width: 100%;
+			height: rem-calc(3);
+			transform: translateY(-50%);
+			background: $color-gray;
+		}
+	}
+
+	.step {
+		&:not(:first-child)::before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			width: 0;
+			height: rem-calc(3);
+			transform: translateY(-50%);
+			background: $color-primary-light;
+			transition: all 500ms;
+		}
+
+		&:nth-child(2)::before {
+			left: 0;
+		}
+
+		&:nth-child(3)::before {
+			left: 50%;
+		}
+
+		&.active {
+			&::before {
+				width: 50%;
+			}
+
+			.step-circle {
+				background: $color-primary-light;
+				transition: background 200ms 300ms, transform 300ms;
+			}
+		}
+
+		&.past {
+			span {
+				opacity: 0;
+			}
+
+			svg {
+				width: fluid(15, 20);
+			}
+
+			.step-circle {
+				transform: scale(1.15);
+				transition: background 200ms 300ms, transform 300ms;
+			}
+		}
+	}
+
+	.step-circle {
+		position: relative;
+		width: fluid(30, 45);
+		height: fluid(30, 45);
+		color: white;
+		background: $color-primary;
+		font-size: fluid(13, 17);
+		font-weight: 600;
+		border-radius: 50%;
+		transition: background 200ms 0s, transform 300ms 0s;
+
+		span,
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		span {
+			transition: opacity 200ms;
+		}
+
+		svg {
+			width: 0;
+			transition: width 200ms;
+		}
+	}
+
+	.register {
+		padding: fluid(20, 75) fluid(20, 75);
+		background: white;
+		border-radius: rem-calc(15);
+
+		.actions {
+			display: grid;
+			grid-auto-flow: column;
+			align-items: center;
+			justify-content: left;
+			gap: fluid(15, 20);
+			margin-top: fluid(25, 55);
+		}
+
+		.button-prev {
+			@extend .text-small;
+
+			color: $color-primary-light;
+			font-weight: 600;
+		}
+
+		&.submitting {
+			pointer-events: none;
+		}
+
+		.step-fields + .step-fields {
+			margin-top: fluid(25, 40);
+		}
+	}
+}

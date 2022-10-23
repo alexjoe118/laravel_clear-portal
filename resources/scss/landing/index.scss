@@ -1,0 +1,14 @@
+.landing {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 100vh;
+}
+
+.page {
+	padding: fluid(30, 80) fluid(15, 50);
+	background: $color-secondary-light;
+	overflow: hidden;
+	transition: border-top-left-radius 250ms;
+}
+
+@import 'open-approvals';

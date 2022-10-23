@@ -1,0 +1,41 @@
+.input-title {
+	width: 100%;
+	margin-bottom: fluid(5, 10);
+
+	h3 {
+		font-size: fluid(16, 21);
+	}
+
+	small {
+		margin-top: fluid(3, 6);
+	}
+
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.style-line {
+		padding-bottom: fluid(12, 20);
+		border-bottom: rem-calc(1) solid $color-secondary;
+	}
+
+	&.style-large {
+		h3 {
+			font-size: fluid(20, 26);
+		}
+	}
+
+	&.style-medium {
+		h3 {
+			font-size: fluid(14, 16);
+		}
+	}
+
+	&.style-no-margin {
+		margin-bottom: 0;
+	}
+}

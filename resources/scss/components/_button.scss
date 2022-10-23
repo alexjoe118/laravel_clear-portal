@@ -1,0 +1,130 @@
+.button {
+	position: relative;
+	display: inline-block;
+	height: fluid(38, 50);
+	font-size: fluid(12, 16);
+	font-weight: 700;
+	border-radius: rem-calc(12);
+	cursor: pointer;
+
+	.button-wrapper {
+		display: grid;
+		grid-auto-flow: column;
+		align-items: center;
+		gap: fluid(5, 10);
+		height: 100%;
+		padding: 0 fluid(15, 25);
+		white-space: nowrap;
+
+		&,
+		> * {
+			pointer-events: none;
+		}
+	}
+
+	svg {
+		width: fluid(12, 16);
+	}
+
+	&.style-primary {
+		color: white;
+		background: $color-primary-light;
+	}
+
+	&.style-outline-primary {
+		color: $color-primary-light;
+		background: transparent;
+		border: 1px solid $color-primary-light;
+	}
+
+	&.style-secondary {
+		color: white;
+		background: $color-tertiary;
+	}
+
+	&.style-large {
+		height: fluid(50, 75);
+		font-size: fluid(14, 18);
+
+		.button-wrapper {
+			padding: 0 fluid(20, 30);
+		}
+	}
+
+	&.style-full-width {
+		width: 100%;
+
+		.button-wrapper {
+			justify-content: center;
+		}
+	}
+
+	.confirmation {
+		position: absolute;
+		bottom: 100%;
+		left: 0;
+		z-index: 2;
+		width: max-content;
+		max-width: fluid(200, 500);
+		padding: fluid(15, 25);
+		color: $color-tertiary;
+		background: white;
+		opacity: 0;
+		border-radius: rem-calc(15);
+		box-shadow: 0 0 rem-calc(20) rgba(black, 0.1);
+		transition: all 200ms;
+		transition-property: margin-bottom, opacity;
+		pointer-events: none;
+		cursor: auto;
+
+		@include media('>=phone-medium') {
+			right: 0;
+			left: auto;
+		}
+
+		.message {
+			@include media('>=phone-medium') {
+				text-align: right;
+			}
+
+			span {
+				display: block;
+				font-weight: normal;
+				margin-top: fluid(5, 10);
+			}
+		}
+
+		.form-fields {
+			margin-top: fluid(15, 25);
+		}
+
+		.actions {
+			display: grid;
+			grid-auto-flow: column;
+			justify-content: left;
+			gap: fluid(4, 8);
+
+			@include media('>=phone-medium') {
+				justify-content: right;
+			}
+		}
+
+		.confirmation-button {
+			@extend .text-small;
+
+			margin-top: fluid(10, 15);
+			padding: fluid(10, 12) fluid(15, 20);
+			color: white;
+			background: $color-primary-light;
+			border-radius: rem-calc(10);
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		&.active {
+			margin-bottom: fluid(10, 15);
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}

@@ -1,0 +1,121 @@
+.page.dashboard-user-loan-product-index {
+	.button-background {
+		position: relative;
+		display: grid;
+		grid-template-columns: auto auto;
+		align-items: center;
+		gap: fluid(15, 40);
+		color: $color-secondary;
+		background: $color-primary;
+		padding: fluid(15, 35);
+		border-radius: rem-calc(15);
+		overflow: hidden;
+
+		> span {
+			color: white;
+		}
+
+		> svg {
+			position: absolute;
+			top: 50%;
+			left: -5%;
+			width: fluid(130, 215);
+			transform: translateY(-50%);
+			opacity: 0.1;
+			pointer-events: none;
+		}
+	}
+
+	.loan-information {
+		.description,
+		.props {
+			margin-top: fluid(10, 15);
+		}
+
+		.title {
+			font-weight: 600;
+		}
+
+		.description {
+			color: $color-tertiary;
+		}
+
+		.props {
+			padding-left: rem-calc(17);
+			list-style-type: disc;
+
+			li {
+				&:not(:first-child) {
+					margin-top: fluid(2, 5);
+				}
+			}
+		}
+
+		.actions .button,
+		.closing-in-progress,
+		.in-progress {
+			min-width: fluid(170, 240, 'desktop-medium');
+		}
+
+		.actions {
+			display: grid;
+			grid-auto-flow: column;
+			justify-content: left;
+			align-items: center;
+			gap: fluid(15, 20);
+			margin-top: fluid(30, 40);
+
+			.button {
+				.button-wrapper {
+					justify-content: space-between;
+				}
+			}
+		}
+
+		.learn-more {
+			color: $color-primary-light;
+			font-weight: 600;
+		}
+
+		.closing-in-progress,
+		.in-progress {
+			display: inline-grid;
+			grid-template-columns: auto 1fr;
+			align-items: center;
+			gap: rem-calc(10);
+			height: fluid(38, 50);
+			padding: 0 rem-calc(10);
+			color: rgba(black, 0.4);
+			background: $color-gray-light;
+			font-size: rem-calc(12);
+			border-radius: rem-calc(12);
+
+			@include media('>=desktop-medium') {
+				gap: fluid(10, 25, 'desktop-medium');
+				padding: 0 fluid(10, 25, 'desktop-medium');
+				font-size: fluid(12, 16, 'desktop-medium');
+			}
+
+			svg {
+				width: rem-calc(20);
+				color: rgba(black, 0.3);
+
+				@include media('>=desktop-medium') {
+					width: fluid(20, 26, 'desktop-medium');
+				}
+			}
+		}
+	}
+
+	.successfully-applied {
+		.advisor {
+			span {
+				display: block;
+			}
+		}
+	}
+
+	.modal-wrapper {
+		max-width: rem-calc(1000);
+	}
+}

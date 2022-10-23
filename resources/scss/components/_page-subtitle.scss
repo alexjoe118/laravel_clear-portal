@@ -1,0 +1,43 @@
+.page-subtitle {
+	display: grid;
+	align-items: center;
+	grid-auto-flow: column;
+	grid-auto-columns: auto 1fr;
+	gap: fluid(5, 30);
+	margin-bottom: fluid(15, 30);
+
+	> span {
+		width: 100%;
+		padding: rem-calc(8) fluid(15, 25);
+		color: white;
+		background: $color-primary;
+		font-size: fluid(14, 24);
+		text-align: center;
+		border-radius: rem-calc(10);
+
+		@include media('>=phone-medium') {
+			text-align: left;
+		}
+	}
+
+	.line {
+		display: none;
+		width: 100%;
+		height: fluid(2, 3);
+		background: $color-secondary;
+
+		@include media('>=phone-medium') {
+			display: block;
+		}
+	}
+
+	&.with-slot {
+		.line {
+			display: block;
+		}
+
+		> span {
+			width: auto;
+		}
+	}
+}

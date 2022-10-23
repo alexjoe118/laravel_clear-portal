@@ -1,0 +1,42 @@
+.page-title {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+	justify-content: left;
+	margin-bottom: fluid(35, 70);
+
+	@include media('>=phone-medium') {
+		display: grid;
+		grid-auto-flow: column;
+		justify-content: space-between;
+		align-items: center;
+		gap: fluid(20, 30, 'phone-medium');
+	}
+
+	> div + * {
+		order: -1;
+		margin-bottom: rem-calc(10);
+
+		@include media('>=phone-medium') {
+			order: unset;
+			margin-bottom: 0;
+		}
+	}
+
+	div {
+		display: grid;
+		align-items: center;
+		justify-content: start;
+		grid-auto-flow: column;
+		gap: fluid(8, 15);
+		color: $color-secondary;
+
+		> svg {
+			width: fluid(18, 45);
+		}
+
+		h2 {
+			color: $color-primary;
+		}
+	}
+}
